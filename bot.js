@@ -785,3 +785,4 @@ message.channel.sendEmbed(embed)
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(*);
     });
+client.login(process.env.BOT_TAG);
