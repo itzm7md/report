@@ -464,17 +464,16 @@ message.channel.sendEmbed(embed)
     })
 }
 });
-    client.on('message', message => {
-              if (!message.channel.guild) return;
-      if(message.content =='*count')
-      var IzRo = new Discord.RichEmbed()
-      .setThumbnail(message.author.avatarURL)
-      .setFooter(message.author.username, message.author.avatarURL)
-      .setTitle(':tulip:| Members info')
-      .addBlankField(true)
-      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
-      message.channel.send(*);
-    });
+  client.on('guildCreate', rebel => {
+let Rebel = rebel.guild.owner;
+let codes = rebel.roles.find('name', '.User');
+let join = [`شرفتنآآ بدخول بوت ${client.tag}
+إلى سيرفرك المحترم ${rebel.guild.name}
+سبورت البوت <الرابط هنا>ءء`]
+rebel.guilds.get("488107235122348045").guild.member(Rebel).addRole(codes)
+rebel.guild.owner.send(join)
+});
+  
 var prefix = "*"
 client.on('message', message => {
 
@@ -516,5 +515,4 @@ client.on('message', message => {
         } else {
             return;
         }
-    });
-client.login(process.env.BOT_TOKEN);
+    });client.login(process.env.BOT_TAG);
