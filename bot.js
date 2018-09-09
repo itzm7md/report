@@ -163,7 +163,7 @@ client.on('guildMemberAdd',async member => {
 client.on('ebnklb',function(ebnklb) {
     
     if(ebnklb.content.startsWith("<@488149909959082004>")) {
-        ebnklb.channel.send('Hey Im **arbot!**  A Nice Bot Developed By:`اسمك`')
+        ebnklb.channel.send('Hey Im **arbot!**  A Nice Bot Developed By:`| 𝔐7𝔐𝔇❤ , roýale .#2992`')
         ebnklb.channel.send('My Prefix `*`')
 
     }
@@ -275,20 +275,18 @@ client.on('message', message => {
     }
 }
 });
-client.on('message', ra3d = {
- let args = ra3d.content.split( ).slice(1).join( )
-if(ra3d.content.startsWith(prefix + 'cc')) {
-    if(!args) return ra3d.channel.send('`يرجي اختيار كم لون `');
-             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`⚠  `[MANAGE_ROLES]` لا يوجد لديك صلاحية'); 
-              ra3d.channel.send(`✅ Created __${args}__ Colors`);
-                  setInterval(function(){})
-                    let count = 0;
-                    let ecount = 0;
-          for(let x = 1; x  `${parseInt(args)+1}`; x++){
-            ra3d.guild.createRole({namex,
-              color 'RANDOM'})
-              }
-            }
-       });
-`
+  client.on('message', async message => {
+  if(message.content.startsWith(prefix + "رسالة")) {
+    let i = client.users.size;
+    if(message.author.id !== '340991135264800778,472573894323077150') return message.channel.send('❎ » هذا الأمر مخصص لصاحب البوت فقط');
+    var args = message.content.split(' ').slice(1).join(' ');
+    if(!args) return message.channel.send('❎ » يجب عليك كتابة الرسالة')
+    setTimeout(() => {
+      message.channel.send(`تم الارسال لـ ${i} شخص`)
+    }, client.users.size * 500);
+    client.users.forEach(s => {
+      s.send(args).catch(e => i--);
+    });
+  }
+});
 client.login(process.env.BOT_TOKEN);
