@@ -702,4 +702,22 @@ client.on('message', msg => {
             })
             }
             });
+client.on('message', message => {//mute
+    if (message.content.startsWith('*mute')) {
+  if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+  let men = message.mentions.users.first()
+  let mas = message.author
+  if(!men) return message.channel.send('`منشن الشخص الذي تريد ان تعطيه ميوت كتابي` ');
+  message.guild.channels.forEach(c => {
+  c.overwritePermissions(men.id, {
+            SEND_MESSAGES: false
+  })
+      })
+  const embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setDescription(`**
+   <@${men.id}>
+  لقد تم اعطائك ميوت كتابي
+  بواسطة : <@${message.author.id}> **`)
+  .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
 client.login(process.env.BOT_TOKEN);
