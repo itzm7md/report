@@ -246,4 +246,33 @@ client.on("guildDelete", guild => {
 client.on("message", async () => {
   
 })
+client.on('message', message => {
+   if(message.content.startsWith(prefix + "invites")) {
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+message.channel.send(`${user} has ${inviteCount} invites.`);
+});
+  }
+});
+client.on('message', message => {
+    if(message.content.includes('discord.gg')){
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? ðŸ¤”   **');
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(`** Ù…Ù…Ù†ÙˆØ¹ Ù†Ø´Ø± Ø§Ù„Ø±ÙˆØ§Ø¨Ø· :angry: ! **`)
+    }
+}
+});
+
+client.on('message', message => {
+    if(message.content.includes('youtube')){
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? ðŸ¤”   **');
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(`** Ù…Ù…Ù†ÙˆØ¹ Ù†Ø´Ø± Ø§Ù„Ø±ÙˆØ§Ø¨Ø· :angry: ! **`)
+    }
+}
+});
 client.login(process.env.BOT_TOKEN);
