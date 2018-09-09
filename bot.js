@@ -102,7 +102,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
  channelr[channelremover.id].deleted = 0;
   },Otime)
   });
-hero.on('guildMemberAdd',async member => {
+client.on('guildMemberAdd',async member => {
   const Canvas = require('canvas');
   const jimp = require('jimp');
   const w = ['./welcome_4.png'];
